@@ -1,5 +1,6 @@
-const initialstate=[{title:"eat",
-description :"eat three meals a day",type:"done"}]
+// const initialstate=[{title:"eat",
+// description :"eat three meals a day",type:"done"}]
+const initialstate=[]
 const addReducer=(state=initialstate,action)=>{
     switch (action.type) {
         case "ADDTASK":
