@@ -1,13 +1,19 @@
-// const initialstate=[{title:"eat",
-// description :"eat three meals a day",type:"done"}]
-const initialstate=[]
-const addReducer=(state=initialstate,action)=>{
+import { v4 as uuidv4 } from 'uuid';
+
+const todoReducers=(state=[{id :uuidv4(),
+description :"eat three meals a day",isDone:false}],action)=>{
     switch (action.type) {
         case "ADDTASK":
-            return [...state,action.payload]
+            return [...state,
+                {
+                    id:uuidv4(),
+                    description:action.payload,
+                    isDone:false
+                }
+                ]
             
-        case "FILTER":
-            return [...state,action.payload]
+        case "UPDATE":
+            return state.map(el=>el.id==action.payload?{...el,isDone:!el.isDone}:el)
             
         default: 
             return state
@@ -15,4 +21,4 @@ const addReducer=(state=initialstate,action)=>{
             
     }
     }
-    export default addReducer
+    export default todoReducers

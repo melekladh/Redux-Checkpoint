@@ -1,7 +1,14 @@
-export const addtask=(a)=>{
+export const addtask=(data)=>{
     return {
 type:"ADDTASK",
-    payload:a
+    payload:data
+    }
+    
+}
+export const updatetask=(data)=>{
+    return {
+type:"UPDATE",
+    payload:data
     }
     
 }
